@@ -33,6 +33,10 @@ tbody * {
     text-align: right;
 }
 
+.translation {
+    background-color: #f6ffd6;
+}
+
 .correct {
     background-color: #d6ffd6;
 }

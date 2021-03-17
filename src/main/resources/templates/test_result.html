@@ -16,7 +16,7 @@
 <div class="test-result">
     <h5 th:text="${testName}"></h5>
     <h6 th:text="'Result:' + ${correctCount} + ' / ' + ${totalCount}"></h6>
-    <th:block th:if="incorrectCount != 0">
+    <th:block th:if="${incorrectCount} != 0">
     <table>
         <thead>
         <tr>
@@ -26,6 +26,7 @@
             <td></td>
         </tr>
         <tr>
+            <td class="translation">Question</td>
             <td class="correct">Correct</td>
             <td class="talnright guess">Your guess</td>
         </tr>
@@ -33,6 +34,7 @@
         <tbody>
         <th:block th:each="flashcard, itemStat : *{incorrectFlashcards}">
             <tr th:id="${itemStat.index}" class="item">
+                <td class="translation" th:text="${flashcard.getQuestion()}"></td>
                 <td class="correct" th:text="${flashcard.getAnswer()}"></td>
                 <td class="guess" th:text="${flashcard.getUserGuess()}"></td>
             </tr>
@@ -42,6 +44,11 @@
         </tr>
         </tbody>
     </table>
+    </th:block>
+    <th:block th:if="${incorrectCount == 0}">
+        <h5>Congratulations!</h5>
+        <p>You made no mistakes!</p>
+        <a href="/fcmvc"><button type="button" class="btn btn-success">Back to Menu</button></a>
     </th:block>
 </div>
 </body>

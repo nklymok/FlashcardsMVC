@@ -29,7 +29,7 @@
         <th:block th:each="flashcard, itemStat : *{getFlashcards()}">
             <tr th:id="${itemStat.index}" class="item">
                 <td th:text="${flashcard.getQuestion()}"></td>
-                <td><input class="form-control" type="text" th:field="*{flashcards[__${itemStat.index}__].userGuess}"></td>
+                <td><input class="form-control" type="text" th:field="*{flashcards[__${itemStat.index}__].userGuess}" autocomplete="off"></td>
             </tr>
         </th:block>
         <tr>

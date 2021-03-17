@@ -9,6 +9,9 @@
 - Take the test.
 - See the feedback on how you got the words, showing you the correct and your answer.
 
+### Test it yourself!
+- [Deployed to Heroku](fcmvc.herokuapp.com)
+
 ## Installation
 ### Quick setup:
 - Use Maven to get all the needed dependencies.

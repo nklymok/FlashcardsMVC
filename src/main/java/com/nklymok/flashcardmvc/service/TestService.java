@@ -15,6 +15,7 @@ public class TestService {
         List<Flashcard> result = new ArrayList<>();
 
         for (Flashcard f : flashcards) {
+            if (f == null || f.getAnswer() == null || f.getQuestion() == null) continue;
                 if (!f.getUserGuess().trim().equalsIgnoreCase(f.getAnswer().trim())) {
                     result.add(f);
                 }

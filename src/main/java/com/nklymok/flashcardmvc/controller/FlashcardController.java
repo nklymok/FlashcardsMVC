@@ -97,6 +97,7 @@ public class FlashcardController {
         model.addAttribute("totalCount", totalCount);
         model.addAttribute("incorrectCount", incorrectCount);
         model.addAttribute("correctCount", correctCount);
+        model.addAttribute("testId", test.getId());
         return "test_result";
     }
 

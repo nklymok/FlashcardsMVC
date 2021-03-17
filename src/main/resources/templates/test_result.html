@@ -40,7 +40,10 @@
             </tr>
         </th:block>
         <tr>
-            <td colspan="2"><a href="/fcmvc"><button type="button" class="btn btn-success">Back to Menu</button></a></td>
+            <td colspan="2"><a href="/fcmvc">
+                <button type="button" class="btn btn-success">Back to Menu</button></a></td>
+            <td colspan="2"><a th:href="'/fcmvc/pick_test/' + ${testId}">
+                <button type="button" class="btn btn-primary">Retry</button></a></td>
         </tr>
         </tbody>
     </table>

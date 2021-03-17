@@ -10,7 +10,7 @@
 - See the feedback on how you got the words, showing you the correct and your answer.
 
 ### Test it yourself!
-- [Deployed to Heroku](fcmvc.herokuapp.com)
+- [Deployed to Heroku](https://fcmvc.herokuapp.com)
 
 ## Installation
 ### Quick setup:

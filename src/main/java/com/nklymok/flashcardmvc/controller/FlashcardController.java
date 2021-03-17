@@ -78,6 +78,13 @@ public class FlashcardController {
         return "redirect:/fcmvc/pick_test";
     }
 
+    @GetMapping("edit_test/{id}")
+    public String editTest(@PathVariable Long id, Model model) {
+        Test test = testRepository.findById(id).get();
+        model.addAttribute("test", test);
+        return "edit_test";
+    }
+
     @PostMapping("check_test")
     public String checkTest(Test test, Model model) {
         List<Flashcard> incorrect = testService.getIncorrect(test);

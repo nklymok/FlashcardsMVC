@@ -23,7 +23,7 @@
                 <thead>
                 <tr>
                     <td>Test Name: </td>
-                    <td><input class="form-control" th:field="*{name}"></td>
+                    <td><input class="form-control" th:text="${test.name}" th:field="*{name}"></td>
                 </tr>
                 <tr>
                     <th>Question</th>
@@ -33,8 +33,10 @@
                 <tbody id="flashcardList">
                 <th:block th:each="flashcard, itemStat : *{getFlashcards()}">
                     <tr th:id="${itemStat.index}" class="item">
-                        <td><input class="form-control" th:field="*{flashcards[__${itemStat.index}__].question}"></td>
-                        <td><input class="form-control" th:field="*{flashcards[__${itemStat.index}__].answer}"></td>
+                        <td><input class="form-control"
+                                   th:field="*{flashcards[__${itemStat.index}__].question}"></td>
+                        <td><input class="form-control"
+                                   th:field="*{flashcards[__${itemStat.index}__].answer}"></td>
                     </tr>
                 </th:block>
 

@@ -55,6 +55,7 @@ public class FlashcardController {
     @GetMapping("pick_test/{id}")
     public String pickTest(@PathVariable Long id, Model model) {
         Test test = testRepository.findById(id).get();
+        testService.shuffleFlashcards(test);
         model.addAttribute("test", test);
         return "take_test";
     }

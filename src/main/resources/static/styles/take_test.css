@@ -1,0 +1,29 @@
+body {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.test-form {
+    padding: 175px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0 10px 0;
+}
+
+.test-form * {
+    margin: 0 auto;
+    text-align: center;
+}
+
+tbody * {
+    padding-top: 5px;
+}
+
+.edit-buttons {
+    padding-top: 10px;
+}
+
+.talnright {
+    text-align: right;
+}

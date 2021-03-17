@@ -1,0 +1,42 @@
+body {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.test-result {
+    padding: 175px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0 10px 0;
+}
+
+.test-result * {
+    margin: 0 auto;
+    text-align: center;
+}
+
+thead * {
+    padding: 5px;
+}
+
+tbody * {
+    padding-top: 5px;
+}
+
+.edit-buttons {
+    padding-top: 10px;
+}
+
+.talnright {
+    text-align: right;
+}
+
+.correct {
+    background-color: #d6ffd6;
+}
+
+.guess {
+    background-color: #ffd6d6;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Flashcards</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link th:href="@{/styles/take_test.css}" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="/fcmvc">
+        <img th:src="@{/images/navbar-logo.jpg}" width="30" height="30" class="d-inline-block align-top" alt="">
+        ありがとう！
+    </a>
+</nav>
+<div class="test-form">
+    <form action="#" th:action="@{/fcmvc/check_test}" th:object="${test}" method="post">
+    <table>
+        <thead>
+        <tr>
+            <td colspan="2"><h5 th:text="${test.getName()}"></h5></td>
+        </tr>
+        <tr>
+            <td>Question</td>
+            <td class="talnright">Guess</td>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="flashcard, itemStat : *{getFlashcards()}">
+            <tr th:id="${itemStat.index}" class="item">
+                <td th:text="${flashcard.getQuestion()}"></td>
+                <td><input class="form-control" type="text" th:field="*{flashcards[__${itemStat.index}__].userGuess}"></td>
+            </tr>
+        </th:block>
+        <tr>
+            <td colspan="2"><button type="submit" class="btn btn-success">Finish test</button></td>
+        </tr>
+        </tbody>
+    </table>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+.table {
+    text-align: center;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.edit-buttons {
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 10px;
+}
+

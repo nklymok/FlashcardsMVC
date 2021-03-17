@@ -1,0 +1,48 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Flashcards</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link th:href="@{/styles/test_result.css}" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="/fcmvc">
+        <img th:src="@{/images/navbar-logo.jpg}" width="30" height="30" class="d-inline-block align-top" alt="">
+        ありがとう！
+    </a>
+</nav>
+<div class="test-result">
+    <h5 th:text="${testName}"></h5>
+    <h6 th:text="'Result:' + ${correctCount} + ' / ' + ${totalCount}"></h6>
+    <th:block th:if="incorrectCount != 0">
+    <table>
+        <thead>
+        <tr>
+            <td colspan="2"></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="correct">Correct</td>
+            <td class="talnright guess">Your guess</td>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="flashcard, itemStat : *{incorrectFlashcards}">
+            <tr th:id="${itemStat.index}" class="item">
+                <td class="correct" th:text="${flashcard.getAnswer()}"></td>
+                <td class="guess" th:text="${flashcard.getUserGuess()}"></td>
+            </tr>
+        </th:block>
+        <tr>
+            <td colspan="2"><a href="/fcmvc"><button type="button" class="btn btn-success">Back to Menu</button></a></td>
+        </tr>
+        </tbody>
+    </table>
+    </th:block>
+</div>
+</body>
+</html>

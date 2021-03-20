@@ -4,10 +4,12 @@
 ![](https://i.imgur.com/bDsvoSX.gif)
 
 ## Features
-- Build your own test with in Test Builder.
-- Add as many flashcards as you want.
-- Take the test.
-- See the feedback on how you got the words, showing you the correct and your answer.
+- Build your own test with in Test Builder,
+- Add as many flashcards as you want,
+- Take the test,
+- Shuffle the tasks,
+- See the feedback on how you got the words, showing you the question, the correct answer and your guess, and
+- Retry if you want to get better.
 
 ### Test it yourself!
 - [Deployed to Heroku](https://fcmvc.herokuapp.com)

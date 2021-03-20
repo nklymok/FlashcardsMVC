@@ -41,9 +41,9 @@
         </th:block>
         <tr>
             <td colspan="2"><a href="/fcmvc">
-                <button type="button" class="btn btn-success">Back to Menu</button></a></td>
+                <button type="button" class="btn btn-success to-menu">Back to Menu</button></a></td>
             <td colspan="2"><a th:href="'/fcmvc/pick_test/' + ${testId}">
-                <button type="button" class="btn btn-primary">Retry</button></a></td>
+                <button type="button" class="btn btn-primary to-retry">Retry</button></a></td>
         </tr>
         </tbody>
     </table>
@@ -54,5 +54,6 @@
         <a href="/fcmvc"><button type="button" class="btn btn-success">Back to Menu</button></a>
     </th:block>
 </div>
+<img src="#" th:src="@{/images/sun.png}" class="sun" alt="">
 </body>
 </html>

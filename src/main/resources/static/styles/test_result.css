@@ -44,3 +44,18 @@ tbody * {
 .guess {
     background-color: #ffd6d6;
 }
+
+.sun {
+    position: fixed;
+    width: 50%;
+    top: 90%;
+    left: 25%;
+}
+
+.to-menu {
+    margin-right: 30px;
+}
+
+.to-retry {
+    margin-left: 30px;
+}

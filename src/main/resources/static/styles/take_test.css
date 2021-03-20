@@ -27,3 +27,10 @@ tbody * {
 .talnright {
     text-align: right;
 }
+
+.sun {
+    position: fixed;
+    width: 50%;
+    top: 90%;
+    left: 25%;
+}

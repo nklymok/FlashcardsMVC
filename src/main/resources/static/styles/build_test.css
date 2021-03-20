@@ -4,7 +4,7 @@ body {
 }
 
 .build-form {
-    padding: 175px;
+    padding: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,4 +22,12 @@ tbody * {
 
 .edit-buttons {
     padding-top: 10px;
+    margin-left: 30px;
+}
+
+.sun {
+    position: fixed;
+    width: 50%;
+    top: 90%;
+    left: 25%;
 }

@@ -8,4 +8,10 @@
     width: 50%;
     top: 90%;
     left: 25%;
+    opacity: 50%;
+    z-index: -1;
+}
+
+.btn {
+    border-radius: 25px;
 }

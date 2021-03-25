@@ -3,6 +3,7 @@ package com.nklymok.flashcardmvc.model;
 import org.springframework.data.annotation.Persistent;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "flashcard")
@@ -13,9 +14,11 @@ public class Flashcard {
     private Long id;
 
     @Column(name = "question")
+    @NotBlank(message = "question is required")
     private String question;
 
     @Column(name = "answer")
+    @NotBlank(message = "answer is required")
     private String answer;
 
     @Transient

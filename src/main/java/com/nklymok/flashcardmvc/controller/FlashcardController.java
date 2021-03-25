@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,7 +62,7 @@ public class FlashcardController {
     }
 
     @PostMapping("add_test")
-    public String addTest(@ModelAttribute("test") Test test, BindingResult bindingResult, Model model) {
+    public String addTest(@ModelAttribute("test") @Valid Test test, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             return "build_test";
         }

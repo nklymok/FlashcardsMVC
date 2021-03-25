@@ -1,6 +1,9 @@
 package com.nklymok.flashcardmvc.model;
 
+import org.springframework.validation.annotation.Validated;
+
 import javax.persistence.*;
+import javax.validation.Valid;
 import java.util.List;
 
 @Entity
@@ -15,6 +18,7 @@ public class Test {
     private String name;
 
     @OneToMany(mappedBy = "test", cascade = CascadeType.ALL)
+    @Valid
     private List<Flashcard> flashcards;
 
     public Test(Long id, String name, List<Flashcard> flashcards) {

@@ -33,8 +33,16 @@
                 <tbody id="flashcardList">
                 <th:block th:each="flashcard, itemStat : *{getFlashcards()}">
                     <tr th:id="${itemStat.index}" class="item">
-                        <td><input class="form-control" th:field="*{flashcards[__${itemStat.index}__].question}"></td>
-                        <td><input class="form-control" th:field="*{flashcards[__${itemStat.index}__].answer}"></td>
+                        <td>
+                            <input class="form-control" th:field="*{flashcards[__${itemStat.index}__].question}"
+                                   th:classappend="${#fields.hasErrors('flashcards[__${itemStat.index}__].question')} ?
+                                   'is-invalid' : ''">
+                        </td>
+                        <td>
+                            <input class="form-control" th:field="*{flashcards[__${itemStat.index}__].answer}"
+                                   th:classappend="${#fields.hasErrors('flashcards[__${itemStat.index}__].answer')} ?
+                                   'is-invalid' : ''">
+                        </td>
                     </tr>
                 </th:block>
 

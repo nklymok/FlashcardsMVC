@@ -102,4 +102,10 @@ public class FlashcardController {
         return "test_result";
     }
 
+    @GetMapping("delete_test/{id}")
+    public String deleteTest(@PathVariable Long id) {
+        testRepository.deleteById(id);
+        return "redirect:/fcmvc/pick_test";
+    }
+
 }

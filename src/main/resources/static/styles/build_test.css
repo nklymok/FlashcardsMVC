@@ -37,3 +37,7 @@ tbody * {
 .btn {
     border-radius: 25px;
 }
+
+.danger-buttons {
+    padding-top: 50px;
+}

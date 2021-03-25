@@ -1,6 +1,17 @@
 .menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin: 10px 0 0 0;
     text-align: center;
+}
+
+.menu * {
+    margin-top: 10px;
+}
+
+.menu a button {
+    width: 25%;
 }
 
 .sun {

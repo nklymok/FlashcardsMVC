@@ -23,7 +23,10 @@
                 <thead>
                 <tr>
                     <td>Test Name: </td>
-                    <td><input class="form-control" th:field="*{name}"></td>
+                    <td>
+                        <input class="form-control" th:field="*{name}"
+                        th:classappend="${#fields.hasErrors('name')} ? 'is-invalid' : ''">
+                    </td>
                 </tr>
                 <tr>
                     <th>Question</th>

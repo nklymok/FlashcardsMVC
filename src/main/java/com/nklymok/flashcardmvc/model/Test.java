@@ -4,6 +4,7 @@ import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
 import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Entity
@@ -15,6 +16,7 @@ public class Test {
     private Long id;
 
     @Column(name = "name")
+    @NotBlank(message = "test name is required")
     private String name;
 
     @OneToMany(mappedBy = "test", cascade = CascadeType.ALL)

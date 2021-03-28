@@ -36,12 +36,10 @@ public class TestController {
 
     @GetMapping("build_test")
     public String buildTest(Model model) {
-        Test test = new Test();
-        test.setFlashcards(new ArrayList<>());
+        Test test = new Test("New Test", new ArrayList<>());
         for (int i = 0; i < 3; i++) {
             test.getFlashcards().add(new Flashcard());
         }
-
         model.addAttribute("test", test);
         return "build_test";
     }
@@ -64,18 +62,13 @@ public class TestController {
 
     @PostMapping("add_test")
     public String addTest(@ModelAttribute("test") @Valid Test test,
-                          BindingResult bindingResult, Model model) {
+                          BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "build_test";
+
         }
-        for(int i = 0; i < test.getFlashcards().size(); i++) {
-            Flashcard f = test.getFlashcards().get(i);
-            if (f == null || f.getQuestion() == null || f.getAnswer() == null ||
-                    f.getQuestion().isBlank() || f.getAnswer().isBlank()) {
-                test.getFlashcards().remove(f);
-                i--;
-                continue;
-            }
+        List <Flashcard> flashcards = test.getFlashcards();
+        for (Flashcard f : flashcards) {
             f.setTest(test);
         }
         testRepository.save(test);
@@ -92,16 +85,8 @@ public class TestController {
     @PostMapping("check_test")
     public String checkTest(Test test, Model model) {
         List<Flashcard> incorrect = testService.getIncorrect(test);
-        Integer totalCount = test.getFlashcards().size();
-        Integer incorrectCount = incorrect.size();
-        Integer correctCount = totalCount - incorrectCount;
-
-        model.addAttribute("testName", test.getName());
-        model.addAttribute("incorrectFlashcards", incorrect);
-        model.addAttribute("totalCount", totalCount);
-        model.addAttribute("incorrectCount", incorrectCount);
-        model.addAttribute("correctCount", correctCount);
-        model.addAttribute("testId", test.getId());
+        model.addAttribute("test", test);
+        model.addAttribute("incorrect", incorrect);
         return "test_result";
     }
 

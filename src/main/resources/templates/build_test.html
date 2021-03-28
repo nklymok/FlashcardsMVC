@@ -25,7 +25,8 @@
                     <td>Test Name: </td>
                     <td>
                         <input class="form-control" th:field="*{name}"
-                        th:classappend="${#fields.hasErrors('name')} ? 'is-invalid' : ''">
+                               th:value="${test.getName() != null ? test.getName() : ''}"
+                               th:classappend="${#fields.hasErrors('name')} ? 'is-invalid' : ''">
                     </td>
                 </tr>
                 <tr>

@@ -1,5 +1,6 @@
 package com.nklymok.flashcardmvc.controller;
 
+import com.nklymok.flashcardmvc.exception.TestNotFoundException;
 import com.nklymok.flashcardmvc.model.Flashcard;
 import com.nklymok.flashcardmvc.model.Test;
 import com.nklymok.flashcardmvc.repository.TestRepository;
@@ -17,13 +18,13 @@ import java.util.List;
 @Controller
 @RequestMapping("fcmvc")
 @SessionAttributes("test")
-public class FlashcardController {
+public class TestController {
 
     private final TestRepository testRepository;
     private final TestService testService;
 
     @Autowired
-    public FlashcardController(TestRepository testRepository, TestService testService) {
+    public TestController(TestRepository testRepository, TestService testService) {
         this.testRepository = testRepository;
         this.testService = testService;
     }
@@ -54,15 +55,16 @@ public class FlashcardController {
     }
 
     @GetMapping("pick_test/{id}")
-    public String pickTest(@PathVariable Long id, Model model) {
-        Test test = testRepository.findById(id).get();
+    public String pickTest(@PathVariable Long id, Model model) throws TestNotFoundException {
+        Test test = testRepository.findById(id).orElseThrow(TestNotFoundException::new);
         testService.shuffleFlashcards(test);
         model.addAttribute("test", test);
         return "take_test";
     }
 
     @PostMapping("add_test")
-    public String addTest(@ModelAttribute("test") @Valid Test test, BindingResult bindingResult, Model model) {
+    public String addTest(@ModelAttribute("test") @Valid Test test,
+                          BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             return "build_test";
         }
@@ -81,8 +83,8 @@ public class FlashcardController {
     }
 
     @GetMapping("edit_test/{id}")
-    public String editTest(@PathVariable Long id, Model model) {
-        Test test = testRepository.findById(id).get();
+    public String editTest(@PathVariable Long id, Model model) throws TestNotFoundException {
+        Test test = testRepository.findById(id).orElseThrow(TestNotFoundException::new);
         model.addAttribute("test", test);
         return "edit_test";
     }
@@ -107,6 +109,11 @@ public class FlashcardController {
     public String deleteTest(@PathVariable Long id) {
         testRepository.deleteById(id);
         return "redirect:/fcmvc/pick_test";
+    }
+
+    @ExceptionHandler(TestNotFoundException.class)
+    public String pickTestError() {
+        return "test_not_found";
     }
 
 }

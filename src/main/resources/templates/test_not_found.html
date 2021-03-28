@@ -1,0 +1,23 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Flashcards</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link th:href="@{/styles/index.css}" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="/fcmvc">
+        <img th:src="@{/images/navbar-logo.jpg}" width="30" height="30" class="d-inline-block align-top" alt="">
+        にほんご！
+    </a>
+</nav>
+<div class="menu">
+    <h3>すみません！</h3>
+    <p>The request test is not found. Please, try again.</p>
+    <img src="#" class="img-404" th:src="@{/images/404error.png}" alt="error 404">
+</div>
+<img src="#" th:src="@{/images/sun.png}" class="sun" alt="">
+</body>
+</html>

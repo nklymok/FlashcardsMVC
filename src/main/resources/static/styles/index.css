@@ -23,6 +23,11 @@
     z-index: -1;
 }
 
+.img-404 {
+    margin: 0 auto;
+    width: 50%;
+}
+
 .btn {
     border-radius: 25px;
 }

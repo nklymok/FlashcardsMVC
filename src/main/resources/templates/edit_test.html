@@ -48,7 +48,9 @@
             </div>
             <div class="danger-buttons">
                 <a th:href="@{'/fcmvc/delete_test/' + ${test.getId()}}">
-                    <button type="button" class="btn btn-danger">Delete test?</button>
+                    <button type="button" class="btn btn-danger"
+                    onclick="if (!confirm('Are you sure you want to delete the test?')) return false">
+                        Delete test?</button>
                 </a>
             </div>
         </fieldset>

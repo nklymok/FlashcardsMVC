@@ -1,7 +1,5 @@
 package com.nklymok.flashcardmvc.model;
 
-import org.springframework.data.annotation.Persistent;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 

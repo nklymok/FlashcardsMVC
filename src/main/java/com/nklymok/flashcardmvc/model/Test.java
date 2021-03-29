@@ -1,7 +1,5 @@
 package com.nklymok.flashcardmvc.model;
 
-import org.springframework.validation.annotation.Validated;
-
 import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
@@ -34,9 +32,7 @@ public class Test {
         this.flashcards = flashcards;
     }
 
-    public Test() {
-
-    }
+    public Test() { }
 
     public Long getId() {
         return id;

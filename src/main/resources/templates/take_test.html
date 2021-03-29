@@ -7,12 +7,7 @@
     <link th:href="@{/styles/take_test.css}" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="/fcmvc">
-        <img th:src="@{/images/navbar-logo.jpg}" width="30" height="30" class="d-inline-block align-top" alt="">
-        にほんご！
-    </a>
-</nav>
+<nav th:replace="layouts/navbar :: navbar"></nav>
 <div class="test-form">
     <form action="#" th:action="@{/fcmvc/check_test}" th:object="${test}" method="post">
     <table>
@@ -39,6 +34,6 @@
     </table>
     </form>
 </div>
-<img src="#" th:src="@{/images/sun.png}" class="sun" alt="">
+<img th:replace="layouts/footer :: footer">
 </body>
 </html>

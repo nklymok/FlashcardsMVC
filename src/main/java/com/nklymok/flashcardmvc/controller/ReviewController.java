@@ -74,11 +74,11 @@ public class ReviewController {
         return "redirect:/fcmvc/pick_review";
     }
 
-    @GetMapping("edit_review/{id}")
+    @GetMapping("build_review/{id}")
     public String editReview(@PathVariable Long id, Model model) throws ReviewNotFoundException {
         Review review = reviewRepository.findById(id).orElseThrow(ReviewNotFoundException::new);
         model.addAttribute("review", review);
-        return "edit_review";
+        return "build_review";
     }
 
     @PostMapping("check_review")

@@ -20,8 +20,9 @@
                     <td>Review Name: </td>
                     <td>
                         <input class="form-control" th:field="*{name}"
-                               th:value="${review.getName() != null ? review.getName() : ''}"
-                               th:classappend="${#fields.hasErrors('name')} ? 'is-invalid' : ''">
+                               th:value="${review.getName()}"
+                               th:classappend="${#fields.hasErrors('name')} ? 'is-invalid' : ''"
+                               th:text="${review.getId() != null} ? ${review.getName()}">
                     </td>
                 </tr>
                 <tr>
@@ -35,12 +36,14 @@
                         <td>
                             <input class="form-control" th:field="*{flashcards[__${itemStat.index}__].question}"
                                    th:classappend="${#fields.hasErrors('flashcards[__${itemStat.index}__].question')} ?
-                                   'is-invalid' : ''">
+                                   'is-invalid' : ''"
+                                    th:value="*{flashcards[__${itemStat.index}__].question}">
                         </td>
                         <td>
                             <input class="form-control" th:field="*{flashcards[__${itemStat.index}__].answer}"
                                    th:classappend="${#fields.hasErrors('flashcards[__${itemStat.index}__].answer')} ?
-                                   'is-invalid' : ''">
+                                   'is-invalid' : ''"
+                                   th:value="*{flashcards[__${itemStat.index}__].answer}">
                         </td>
                     </tr>
                 </th:block>

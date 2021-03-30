@@ -20,7 +20,7 @@
         <tr th:each="review : *{reviews}">
             <td th:text="${review.getName()}"></td>
             <td><a th:href="@{/fcmvc/pick_review/{id}(id=${review.getId()})}">Take</a></td>
-            <td><a th:href="@{/fcmvc/edit_review/{id}(id=${review.getId()})}">
+            <td><a th:href="@{/fcmvc/build_review/{id}(id=${review.getId()})}">
                 <img src="#" width="20" th:src="@{/images/pencil-square.svg}" alt=""></a>
             </td>
         </tr>

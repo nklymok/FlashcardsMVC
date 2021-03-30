@@ -1,7 +1,7 @@
 package com.nklymok.flashcardmvc.service;
 
 import com.nklymok.flashcardmvc.model.Flashcard;
-import com.nklymok.flashcardmvc.model.Test;
+import com.nklymok.flashcardmvc.model.Review;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,14 +9,14 @@ import java.util.Collections;
 import java.util.List;
 
 @Service
-public class TestService {
+public class ReviewService {
 
-    public void shuffleFlashcards(Test test) {
-        Collections.shuffle(test.getFlashcards());
+    public void shuffleFlashcards(Review review) {
+        Collections.shuffle(review.getFlashcards());
     }
 
-    public List<Flashcard> getIncorrect(Test test) {
-        List<Flashcard> flashcards = test.getFlashcards();
+    public List<Flashcard> getIncorrect(Review review) {
+        List<Flashcard> flashcards = review.getFlashcards();
         List<Flashcard> result = new ArrayList<>();
 
         for (Flashcard f : flashcards) {

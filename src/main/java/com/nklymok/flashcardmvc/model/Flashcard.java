@@ -26,8 +26,8 @@ public class Flashcard {
     private String userGuess;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "test_id")
-    private Test test;
+    @JoinColumn(name = "review_id")
+    private Review review;
 
     public Flashcard(Long id, String question, String answer, String userGuess) {
         this.id = id;

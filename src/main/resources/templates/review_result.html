@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <title>Flashcards</title>
     <link th:href="@{/styles/bootstrap.min.css}" rel="stylesheet">
-    <link th:href="@{/styles/test_result.css}" rel="stylesheet">
+    <link th:href="@{/styles/review_result.css}" rel="stylesheet">
 </head>
 <body>
 <nav th:replace="layouts/navbar :: navbar"></nav>
-<div class="test-result">
-    <h5 th:text="${test.getName()}"></h5>
-    <h6 th:text="'Result:' + ${test.getFlashcards().size() - incorrect.size()} +
-        ' / ' + ${test.getFlashcards().size()}"></h6>
+<div class="review-result">
+    <h5 th:text="${review.getName()}"></h5>
+    <h6 th:text="'Result:' + ${review.getFlashcards().size() - incorrect.size()} +
+        ' / ' + ${review.getFlashcards().size()}"></h6>
     <th:block th:if="${incorrect.size()} != 0">
     <table>
         <thead>
@@ -38,7 +38,7 @@
         <tr>
             <td colspan="2"><a href="/fcmvc">
                 <button type="button" class="btn btn-success to-menu">Back to Menu</button></a></td>
-            <td colspan="2"><a th:href="'/fcmvc/pick_test/' + ${test.getId()}">
+            <td colspan="2"><a th:href="'/fcmvc/pick_review/' + ${review.getId()}">
                 <button type="button" class="btn btn-primary to-retry">Retry</button></a></td>
         </tr>
         </tbody>

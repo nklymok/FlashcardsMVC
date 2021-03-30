@@ -1,0 +1,14 @@
+package com.nklymok.flashcardmvc;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+public class FlashcardAppTest {
+
+    @Test
+    public void contextLoads() {
+
+    }
+
+}

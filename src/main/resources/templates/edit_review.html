@@ -4,25 +4,21 @@
     <meta charset="UTF-8">
     <title>Flashcards</title>
     <link th:href="@{/styles/bootstrap.min.css}" rel="stylesheet">
-    <link th:href="@{/styles/build_test.css}" rel="stylesheet">
-    <script th:src="@{/js/build_test.js}" type="application/javascript"></script>
+    <link th:href="@{/styles/build_review.css}" rel="stylesheet">
+    <script th:src="@{/js/build_review.js}" type="application/javascript"></script>
 </head>
 <body>
 <nav th:replace="layouts/navbar :: navbar"></nav>
 <div class="build-form">
-    <form action="#" th:action="@{/fcmvc/add_test}" th:object="${test}" method="post">
+    <form action="#" th:action="@{/fcmvc/add_review}" th:object="${review}" method="post">
         <fieldset>
             <input type="submit" id="submitButton" th:value="Save" class="btn btn-primary mb-2">
             <input type="reset" id="resetButton" name="reset" th:value="Reset" class="btn btn-danger mb-2">
             <table>
                 <thead>
                 <tr>
-                    <td>Test Name: </td>
-                    <td>
-                        <input class="form-control" th:field="*{name}"
-                               th:value="${test.getName() != null ? test.getName() : ''}"
-                               th:classappend="${#fields.hasErrors('name')} ? 'is-invalid' : ''">
-                    </td>
+                    <td>Review Name: </td>
+                    <td><input class="form-control" th:text="${review.name}" th:field="*{name}"></td>
                 </tr>
                 <tr>
                     <th>Question</th>
@@ -32,16 +28,10 @@
                 <tbody id="flashcardList">
                 <th:block th:each="flashcard, itemStat : *{getFlashcards()}">
                     <tr th:id="${itemStat.index}" class="item">
-                        <td>
-                            <input class="form-control" th:field="*{flashcards[__${itemStat.index}__].question}"
-                                   th:classappend="${#fields.hasErrors('flashcards[__${itemStat.index}__].question')} ?
-                                   'is-invalid' : ''">
-                        </td>
-                        <td>
-                            <input class="form-control" th:field="*{flashcards[__${itemStat.index}__].answer}"
-                                   th:classappend="${#fields.hasErrors('flashcards[__${itemStat.index}__].answer')} ?
-                                   'is-invalid' : ''">
-                        </td>
+                        <td><input class="form-control"
+                                   th:field="*{flashcards[__${itemStat.index}__].question}"></td>
+                        <td><input class="form-control"
+                                   th:field="*{flashcards[__${itemStat.index}__].answer}"></td>
                     </tr>
                 </th:block>
 
@@ -50,6 +40,13 @@
             <div class="edit-buttons">
                 <button type="button" class="btn btn-outline-success" onclick="addRow()">Add Flashcard</button>
                 <button type="button" class="btn btn-outline-danger" onclick="removeRow()">Remove Flashcard</button>
+            </div>
+            <div class="danger-buttons">
+                <a th:href="@{'/fcmvc/delete_review/' + ${review.getId()}}">
+                    <button type="button" class="btn btn-danger"
+                    onclick="if (!confirm('Are you sure you want to delete the review?')) return false">
+                        Delete Review?</button>
+                </a>
             </div>
         </fieldset>
     </form>

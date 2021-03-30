@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <title>Flashcards</title>
     <link th:href="@{/styles/bootstrap.min.css}" rel="stylesheet">
-    <link th:href="@{/styles/take_test.css}" rel="stylesheet">
+    <link th:href="@{/styles/take_review.css}" rel="stylesheet">
 </head>
 <body>
 <nav th:replace="layouts/navbar :: navbar"></nav>
-<div class="test-form">
-    <form action="#" th:action="@{/fcmvc/check_test}" th:object="${test}" method="post">
+<div class="review-form">
+    <form action="#" th:action="@{/fcmvc/check_review}" th:object="${review}" method="post">
     <table>
         <thead>
         <tr>
-            <td colspan="2"><h5 th:text="${test.getName()}"></h5></td>
+            <td colspan="2"><h5 th:text="${review.getName()}"></h5></td>
         </tr>
         <tr>
             <td>Question</td>
@@ -28,7 +28,7 @@
             </tr>
         </th:block>
         <tr>
-            <td colspan="2"><button type="submit" class="btn btn-success">Finish test</button></td>
+            <td colspan="2"><button type="submit" class="btn btn-success">Finish Review</button></td>
         </tr>
         </tbody>
     </table>

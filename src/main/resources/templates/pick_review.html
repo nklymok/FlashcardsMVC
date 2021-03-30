@@ -4,30 +4,30 @@
     <meta charset="UTF-8">
     <title>Flashcards</title>
     <link th:href="@{/styles/bootstrap.min.css}" rel="stylesheet">
-    <link th:href="@{/styles/pick_test.css}" rel="stylesheet">
+    <link th:href="@{/styles/pick_review.css}" rel="stylesheet">
 </head>
 <body>
 <nav th:replace="layouts/navbar :: navbar"></nav>
     <table class="table">
         <thead>
         <tr>
-            <td>Test Name</td>
+            <td>Review Name</td>
             <td></td>
             <td></td>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="test : *{tests}">
-            <td th:text="${test.getName()}"></td>
-            <td><a th:href="@{/fcmvc/pick_test/{id}(id=${test.getId()})}">Take</a></td>
-            <td><a th:href="@{/fcmvc/edit_test/{id}(id=${test.getId()})}">
+        <tr th:each="review : *{reviews}">
+            <td th:text="${review.getName()}"></td>
+            <td><a th:href="@{/fcmvc/pick_review/{id}(id=${review.getId()})}">Take</a></td>
+            <td><a th:href="@{/fcmvc/edit_review/{id}(id=${review.getId()})}">
                 <img src="#" width="20" th:src="@{/images/pencil-square.svg}" alt=""></a>
             </td>
         </tr>
         </tbody>
     </table>
     <div class="edit-buttons">
-        <a href="/fcmvc/build_test"><button class="btn btn-success">New Test</button></a>
+        <a href="/fcmvc/build_review"><button class="btn btn-success">New Review</button></a>
     </div>
 <img th:replace="layouts/footer :: footer">
 </body>

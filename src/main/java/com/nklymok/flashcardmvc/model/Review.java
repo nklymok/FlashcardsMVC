@@ -8,32 +8,26 @@ import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Entity
-@Table(name = "test")
+@Table(name = "review")
 @Data
-public class Test {
+public class Review {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "name")
-    @NotBlank(message = "test name is required")
+    @NotBlank(message = "review name is required")
     private String name;
 
-    @OneToMany(mappedBy = "test", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "review", cascade = CascadeType.ALL)
     @Valid
     private List<Flashcard> flashcards;
 
-    public Test(Long id, String name, List<Flashcard> flashcards) {
-        this.id = id;
+    public Review(String name, List<Flashcard> flashcards) {
         this.name = name;
         this.flashcards = flashcards;
     }
 
-    public Test(String name, List<Flashcard> flashcards) {
-        this.name = name;
-        this.flashcards = flashcards;
-    }
-
-    public Test() { }
+    public Review() { }
 }

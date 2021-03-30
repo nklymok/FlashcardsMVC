@@ -3,7 +3,7 @@ body {
     text-align: center;
 }
 
-.test-form {
+.review-form {
     padding: 175px;
     display: flex;
     justify-content: center;
@@ -11,7 +11,7 @@ body {
     margin: 10px 0 10px 0;
 }
 
-.test-form * {
+.review-form * {
     margin: 0 auto;
     text-align: center;
 }

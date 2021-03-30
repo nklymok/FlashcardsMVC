@@ -3,7 +3,7 @@ body {
     text-align: center;
 }
 
-.test-result {
+.review-result {
     padding: 175px;
     display: flex;
     flex-direction: column;
@@ -12,7 +12,7 @@ body {
     margin: 10px 0 10px 0;
 }
 
-.test-result * {
+.review-result * {
     margin: 0 auto;
     text-align: center;
 }

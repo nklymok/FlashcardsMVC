@@ -1,7 +1,7 @@
 # FlashcardsMVC
 ### A useful tool to learn new human language.
 
-![](https://i.imgur.com/bDsvoSX.gif)
+![](https://i.imgur.com/XTXZsW8.gif)
 
 ## Features
 - Build your own test with in Test Builder,

@@ -51,6 +51,13 @@
                 <button type="button" class="btn btn-outline-success" onclick="addRow()">Add Flashcard</button>
                 <button type="button" class="btn btn-outline-danger" onclick="removeRow()">Remove Flashcard</button>
             </div>
+            <div th:if="${review.getId() != null}" class="danger-buttons">
+                <a th:href="@{'/fcmvc/delete_review/' + ${review.getId()}}">
+                    <button type="button" class="btn btn-danger"
+                            onclick="if (!confirm('Are you sure you want to delete the review?')) return false">
+                        Delete Review?</button>
+                </a>
+            </div>
             <div th:if="${#fields.hasErrors('flashcards')}" class="form-errors">
                 <p>Please make sure that questions don't repeat.</p>
             </div>

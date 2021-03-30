@@ -1,5 +1,6 @@
 package com.nklymok.flashcardmvc.model;
 
+import com.nklymok.flashcardmvc.validation.annotation.UniqueFlashcardsConstraint;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -22,6 +23,7 @@ public class Review {
 
     @OneToMany(mappedBy = "review", cascade = CascadeType.ALL)
     @Valid
+    @UniqueFlashcardsConstraint
     private List<Flashcard> flashcards;
 
     public Review(String name, List<Flashcard> flashcards) {

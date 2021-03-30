@@ -65,7 +65,6 @@ public class ReviewController {
                             BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "build_review";
-
         }
         List <Flashcard> flashcards = review.getFlashcards();
         for (Flashcard f : flashcards) {

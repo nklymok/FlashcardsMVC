@@ -51,6 +51,9 @@
                 <button type="button" class="btn btn-outline-success" onclick="addRow()">Add Flashcard</button>
                 <button type="button" class="btn btn-outline-danger" onclick="removeRow()">Remove Flashcard</button>
             </div>
+            <div th:if="${#fields.hasErrors('flashcards')}" class="form-errors">
+                <p>Please make sure that questions don't repeat.</p>
+            </div>
         </fieldset>
     </form>
 </div>

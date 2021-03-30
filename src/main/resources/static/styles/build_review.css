@@ -41,3 +41,11 @@ tbody * {
 .danger-buttons {
     padding-top: 50px;
 }
+
+.form-errors {
+    margin-top: 50px;
+    padding: 10px;
+    display: inline-block;
+    background-color: #ffd7d7;
+    border-radius: 20px;
+}

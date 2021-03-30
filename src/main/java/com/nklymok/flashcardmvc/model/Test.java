@@ -1,5 +1,7 @@
 package com.nklymok.flashcardmvc.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
@@ -7,6 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "test")
+@Data
 public class Test {
 
     @Id
@@ -33,28 +36,4 @@ public class Test {
     }
 
     public Test() { }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<Flashcard> getFlashcards() {
-        return flashcards;
-    }
-
-    public void setFlashcards(List<Flashcard> flashcards) {
-        this.flashcards = flashcards;
-    }
 }

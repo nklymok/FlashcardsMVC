@@ -10,7 +10,7 @@
 <nav th:replace="layouts/navbar :: navbar"></nav>
 <div class="review-result">
     <h5 th:text="${review.getName()}"></h5>
-    <h6 th:text="'Result:' + ${review.getFlashcards().size() - incorrect.size()} +
+    <h6 th:text="'Result: ' + ${review.getFlashcards().size() - incorrect.size()} +
         ' / ' + ${review.getFlashcards().size()}"></h6>
     <th:block th:if="${incorrect.size()} != 0">
     <table>
@@ -47,7 +47,14 @@
     <th:block th:if="${incorrect.size() == 0}">
         <h5>Congratulations!</h5>
         <p>You made no mistakes!</p>
-        <a href="/fcmvc"><button type="button" class="btn btn-success">Back to Menu</button></a>
+        <table>
+        <tr>
+            <td><a href="/fcmvc">
+                <button type="button" class="btn btn-success">Back to Menu</button></a></td>
+            <td><a href="/fcmvc/pick_review">
+                <button type="button" class="btn btn-primary">Pick Review</button></a></td>
+        </tr>
+        </table>
     </th:block>
 </div>
 <img th:replace="layouts/footer :: footer">
